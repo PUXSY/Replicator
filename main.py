@@ -14,13 +14,16 @@ Usage:
 """
 
 
-from Window_manager import *
+from ProgramManager import ProgramManager
+from ReplicatorUI import ReplicatorUI
+from ReplicatorApp import ReplicatorApp
 from PyQt5.QtWidgets import QApplication
 import sys
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    window_manager = Window_manager
-    replicator = window_manager.install_software_window()
+    program_manager = ProgramManager()
+    replicator_ui = ReplicatorUI(program_manager)
+    replicator = ReplicatorApp()
     replicator.show()
     sys.exit(app.exec_())

@@ -1,14 +1,12 @@
-from typing import List
 from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
                              QListWidget, QListWidgetItem, QPushButton, QLabel, QProgressBar, QLineEdit)
-from PyQt5.QtCore import Qt, QThread, pyqtSignal, QSize
+from PyQt5.QtCore import Qt, QThread, pyqtSignal
 from PyQt5.QtGui import QIcon
-from ProgramManager import ProgramManager
-from InstallationThread import InstallationThread
+from ProgramManager import *
+from InstallationThread import *
 import os
 
-
-class Install_software_widgetUI(QWidget):
+class ReplicatorUI(QWidget):
     def __init__(self, winget_manager: ProgramManager):
         super().__init__()
         self.winget_manager = winget_manager
@@ -73,36 +71,21 @@ class Install_software_widgetUI(QWidget):
 
     def _create_status_label(self) -> None:
         self.status_label.setAlignment(Qt.AlignCenter)
-        self.layout.addWidget(self.status_label)
+        self.layout.addWidget(self.status_label)    
 
+        
     def _populate_available_list(self) -> None:
         self.available_list.clear()
-        for content in self.winget_manager.available_programs:
-            self._add_item_with_icon(self.available_list, content)
-
-    def _populate_available_list(self) -> None:
-        """Clear and repopulate the available programs list."""
-        self.available_list.clear()
-        for program in self.winget_manager.available_programs:
+        self.available_list.addItems(self.winget_manager.applications_data)
+        for program in self.winget_manager.applications_data:
             self._add_item_with_icon(self.available_list, program)
 
-
     def _add_item_with_icon(self, list_widget: QListWidget, program: str) -> None:
-        """Add a program item with its corresponding icon to the list widget."""
         item = QListWidgetItem(program)
         icon_path = self.winget_manager.get_logo_path(program)
-
-        if icon_path:
-            for icon_path in icon_path:
-                if os.path.exists(icon_path):
-                    icon = QIcon(icon_path)
-                    pixmap = icon.pixmap(64, 64)
-                    item.setIcon(QIcon(pixmap))
-                    item.setSizeHint(QSize(item.sizeHint().width(), max(item.sizeHint().height(), 70)))
-                    break  # Use the first valid icon path
-
+        if icon_path and os.path.exists(icon_path):
+            item.setIcon(QIcon(icon_path))
         list_widget.addItem(item)
-
 
     def _add_selected_programs(self) -> None:
         for item in self.available_list.selectedItems():
@@ -119,12 +102,12 @@ class Install_software_widgetUI(QWidget):
 
     def _filter_available_list(self, text: str) -> None:
         for i in range(self.available_list.count()):
-            item = self.available_list.item(i)
+            item: list[str] = self.available_list[i]
             item.setHidden(text.lower() not in item.text().lower())
 
     def _filter_selected_list(self, text: str) -> None:
         for i in range(self.selected_list.count()):
-            item = self.selected_list.item(i)
+            item = self.selected_list[i]
             item.setHidden(text.lower() not in item.text().lower())
 
     def _install_programs(self) -> None:
