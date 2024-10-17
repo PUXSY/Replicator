@@ -33,7 +33,13 @@ class ProgramManager:
             self.applications_data = {}
 
     def fetch_available_programs(self) -> None:
-        self.available_programs = list(self.applications_data.keys())
+        """
+        Updated to use 'content' field from applications.json
+        """
+        self.available_programs = []
+        for program_id, program_data in self.applications_data.items():
+            if 'content' in program_data:
+                self.available_programs.append(program_data['content'])
 
     def add_program(self, program: str) -> None:
         """
@@ -51,16 +57,17 @@ class ProgramManager:
             self.selected_programs.remove(program)
             self.available_programs.append(program)
 
-    def get_install_command(self, program: str) -> str:
+    def get_install_command(self, program_name: str) -> str:
         """
-        Get the installation command for a program.
+        Get the installation command for a program using its display name.
         """
-        if program in self.applications_data:
-            app_data = self.applications_data[program]
-            if 'winget' in app_data:
-                return f"winget install {app_data['winget']}"
-            elif 'choco' in app_data:
-                return f"choco install {app_data['choco']}"
+        # Find the program ID by matching the content/name
+        for program_id, program_data in self.applications_data.items():
+            if program_data.get('content') == program_name:
+                if 'winget' in program_data:
+                    return f"winget install {program_data['winget']}"
+                elif 'choco' in program_data:
+                    return f"choco install {program_data['choco']}"
         return ""
 
     def install_programs(self) -> List[str]:
@@ -74,9 +81,11 @@ class ProgramManager:
                 results.append(f"No installation command found for {program}")
         return results
     
-    def get_logo_path(self, program: str) -> str:
-        if program in self.applications_data:
-            app_data = self.applications_data[program]
-            if 'logo' in app_data:
-                return app_data['logo']
+    def get_logo_path(self, program_name: str) -> str:
+        """
+        Get the logo path for a program using its display name.
+        """
+        for program_data in self.applications_data.values():
+            if program_data.get('content') == program_name:
+                return program_data.get('logo', "")
         return ""

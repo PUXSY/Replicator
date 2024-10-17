@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
                              QListWidget, QListWidgetItem, QPushButton, QLabel, QProgressBar, QLineEdit)
-from PyQt5.QtCore import Qt, QThread, pyqtSignal
+from PyQt5.QtCore import Qt, QThread, pyqtSignal, QSize
 from PyQt5.QtGui import QIcon
 from ProgramManager import *
 from InstallationThread import *
@@ -26,6 +26,8 @@ class ReplicatorUI(QWidget):
         self._create_progress_bar()
         self._create_status_label()
         self._populate_available_list()
+        self.available_list.setIconSize(QSize(32, 32))
+        self.selected_list.setIconSize(QSize(32, 32))
 
     def _create_header(self) -> None:
         header_label = QLabel("Replicator: Your Personalized Digital Twin")
@@ -86,9 +88,12 @@ class ReplicatorUI(QWidget):
         item = QListWidgetItem(program)
         icon_path = self.winget_manager.get_logo_path(program)
         if icon_path and os.path.exists(icon_path):
-            item.setIcon(QIcon(icon_path))
+            icon = QIcon(icon_path)
+            item.setSizeHint(QSize(item.sizeHint().width(), 40))  # Increase item height to accommodate larger icon
+            list_widget.setIconSize(QSize(32, 32))  # Set icon size to 32x32
+            item.setIcon(icon)
         list_widget.addItem(item)
-
+        
     def _add_selected_programs(self) -> None:
         for item in self.available_list.selectedItems():
             program = item.text()
