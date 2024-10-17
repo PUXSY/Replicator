@@ -9,7 +9,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Replicator - Welcome")
-        self.setGeometry(560, 240, 800, 600)
+        self.setGeometry(560, 240, 800, 600)    
         
         # Create central widget and layout
         central_widget = QWidget()
@@ -42,13 +42,13 @@ class MainWindow(QMainWindow):
         self.download_button.setFont(QFont("Arial", 12))
         self.download_button.setStyleSheet("""
             QPushButton {
-                background-color: #2ecc71;
+                background-color: #222b2e;
                 color: white;
                 border-radius: 5px;
                 padding: 10px;
             }
             QPushButton:hover {
-                background-color: #27ae60;
+                background-color: #3d454d;
             }
             QPushButton:pressed {
                 background-color: #219a52;
