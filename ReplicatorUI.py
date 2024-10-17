@@ -71,13 +71,15 @@ class ReplicatorUI(QWidget):
 
     def _create_status_label(self) -> None:
         self.status_label.setAlignment(Qt.AlignCenter)
-        self.layout.addWidget(self.status_label)    
+        self.layout.addWidget(self.status_label)
 
-        
     def _populate_available_list(self) -> None:
         self.available_list.clear()
-        self.available_list.addItems(self.winget_manager.applications_data)
-        for program in self.winget_manager.applications_data:
+        self.available_list.addItems(self.winget_manager.available_programs)
+
+    def _populate_available_list(self) -> None:
+        self.available_list.clear()
+        for program in self.winget_manager.available_programs:
             self._add_item_with_icon(self.available_list, program)
 
     def _add_item_with_icon(self, list_widget: QListWidget, program: str) -> None:
@@ -102,12 +104,12 @@ class ReplicatorUI(QWidget):
 
     def _filter_available_list(self, text: str) -> None:
         for i in range(self.available_list.count()):
-            item: list[str] = self.available_list[i]
+            item = self.available_list.item(i)
             item.setHidden(text.lower() not in item.text().lower())
 
     def _filter_selected_list(self, text: str) -> None:
         for i in range(self.selected_list.count()):
-            item = self.selected_list[i]
+            item = self.selected_list.item(i)
             item.setHidden(text.lower() not in item.text().lower())
 
     def _install_programs(self) -> None:

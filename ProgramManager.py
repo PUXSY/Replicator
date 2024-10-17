@@ -33,12 +33,7 @@ class ProgramManager:
             self.applications_data = {}
 
     def fetch_available_programs(self) -> None:
-        self.available_programs = []
-        for data in self.applications_data.values():
-            if 'content' in data:
-                self.available_programs.append(data['content'])
-
-        
+        self.available_programs = list(self.applications_data.keys())
 
     def add_program(self, program: str) -> None:
         """
