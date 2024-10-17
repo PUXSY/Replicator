@@ -58,6 +58,7 @@ class InstallWindowContent(QWidget):
 
     def _create_header(self) -> None:
         header_label = QLabel("Program Installation Manager")
+        header_label.setStyleSheet("font-size: 18px; font-weight: bold;")
         header_label.setAlignment(Qt.AlignCenter)
         self.layout.addWidget(header_label)
 
@@ -104,14 +105,13 @@ class InstallWindowContent(QWidget):
         install_button = QPushButton("Install Selected Programs")
         install_button.setStyleSheet("""
             QPushButton {
-                background-color: #2ecc71;
+                background-color: #222b2e;
                 color: white;
                 border-radius: 5px;
                 padding: 10px;
-                font-size: 14px;
             }
             QPushButton:hover {
-                background-color: #27ae60;
+                background-color: #3d454d;
             }
             QPushButton:pressed {
                 background-color: #219a52;

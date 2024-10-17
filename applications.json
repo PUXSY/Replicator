@@ -69,7 +69,7 @@
         "description": "Anaconda is a distribution of the Python and R programming languages for scientific computing.",
         "link": "https://www.anaconda.com/products/distribution",
         "winget": "Anaconda.Anaconda3",
-		"logo": "./logs/anaconda3_icon.png"
+        "logo": "./logs/anaconda3_icon.png"
     },
     "angryipscanner": {
         "category": "Pro Tools",
@@ -78,7 +78,7 @@
         "description": "Angry IP Scanner is an open-source and cross-platform network scanner. It is used to scan IP addresses and ports, providing information about network connectivity.",
         "link": "https://angryip.org/",
         "winget": "angryziber.AngryIPScanner",
-		"logo": "./logs/angryipscanner_icon.png"
+        "logo": "./logs/angryipscanner_icon.png"
     },
     "anki": {
         "category": "Document",
@@ -87,7 +87,7 @@
         "description": "Anki is a flashcard application that helps you memorize information with intelligent spaced repetition.",
         "link": "https://apps.ankiweb.net/",
         "winget": "Anki.Anki",
-		"logo": "./logs/anki_icon.png"
+        "logo": "./logs/anki_icon.png"
     },
     "anydesk": {
         "category": "Utilities",
@@ -96,7 +96,7 @@
         "description": "AnyDesk is a remote desktop software that enables users to access and control computers remotely. It is known for its fast connection and low latency.",
         "link": "https://anydesk.com/",
         "winget": "AnyDeskSoftwareGmbH.AnyDesk",
-		"logo": "./logs/anydesk_icon.png"
+        "logo": "./logs/anydesk_icon.png"
     },
     "audacity": {
         "category": "Multimedia Tools",
@@ -105,7 +105,7 @@
         "description": "Audacity is a free and open-source audio editing software known for its powerful recording and editing capabilities.",
         "link": "https://www.audacityteam.org/",
         "winget": "Audacity.Audacity",
-		"logo": "./logs/audacity_icon.png"
+        "logo": "./logs/audacity_icon.png"
     },
     "autoruns": {
         "category": "Microsoft Tools",
@@ -114,7 +114,7 @@
         "description": "This utility shows you what programs are configured to run during system bootup or login",
         "link": "https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns",
         "winget": "Microsoft.Sysinternals.Autoruns",
-		"logo": "./logs/autoruns_icon.png"
+        "logo": "./logs/autoruns_icon.png"
     },
     "rdcman": {
         "category": "Microsoft Tools",
@@ -140,7 +140,7 @@
         "description": "Azure Data Studio is a data management tool that enables you to work with SQL Server, Azure SQL DB and SQL DW from Windows, macOS and Linux.",
         "link": "https://docs.microsoft.com/sql/azure-data-studio/what-is-azure-data-studio",
         "winget": "Microsoft.AzureDataStudio",
-		"logo": "./logs/azuredatastudio_icon.png"
+        "logo": "./logs/azuredatastudio_icon.png"
     },
     "barrier": {
         "category": "Utilities",
@@ -149,7 +149,7 @@
         "description": "Barrier is an open-source software KVM (keyboard, video, and mouseswitch). It allows users to control multiple computers with a single keyboard and mouse, even if they have different operating systems.",
         "link": "https://github.com/debauchee/barrier",
         "winget": "DebaucheeOpenSourceGroup.Barrier",
-		"logo": "./logs/barrier_icon.png"
+        "logo": "./logs/barrier_icon.png"
     },
     "bat": {
         "category": "Utilities",
