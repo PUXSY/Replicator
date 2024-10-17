@@ -71,12 +71,29 @@ class ProgramManager:
         return ""
 
     def install_programs(self) -> List[str]:
+        """Install selected programs and return results."""
+        # Get the list of selected programs from the selected_programs list
+        if not self.selected_programs:
+            return ["No programs selected for installation"]
+            
         results = []
         for program in self.selected_programs:
             command = self.get_install_command(program)
             if command:
-                subprocess.call(command)
-                results.append(f"Would install {program} using command: {command}")
+                try:
+                    # Use subprocess.run instead of call for better error handling
+                    process = subprocess.run(
+                        command,
+                        shell=True,
+                        capture_output=True,
+                        text=True
+                    )
+                    if process.returncode == 0:
+                        results.append(f"Successfully installed {program}")
+                    else:
+                        results.append(f"Failed to install {program}: {process.stderr}")
+                except Exception as e:
+                    results.append(f"Error installing {program}: {str(e)}")
             else:
                 results.append(f"No installation command found for {program}")
         return results

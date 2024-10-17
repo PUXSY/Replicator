@@ -50,7 +50,8 @@ class WindowManager:
         if not self.install_window:
             return
 
-        selected_count = len(self.program_manager.selected_programs)
+        # Get the count directly from the UI list widget instead of program manager
+        selected_count = self.install_window.central_widget.selected_list.count()
         if selected_count == 0:
             QMessageBox.warning(
                 self.install_window,
