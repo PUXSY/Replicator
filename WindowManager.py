@@ -6,9 +6,6 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
 from typing import Optional
 
 class WindowManager:
-    """
-    Manages all application windows and their interactions.
-    """
     def __init__(self):
         """Initialize the window manager with all required components."""
         self.program_manager = ProgramManager()
@@ -25,11 +22,21 @@ class WindowManager:
         # Setup install window
         self.install_window = InstallWindow()
         
+        # Connect navigation signals
+        self.install_window.back_clicked.connect(self.show_main_window)
+        self.install_window.next_clicked.connect(self.handle_next_page)
+        
         # Connect window-level signals
         if hasattr(self.install_window, 'central_widget'):
             self.install_window.central_widget.installation_requested.connect(
                 self.show_install_confirmation
             )
+
+    def handle_next_page(self) -> None:
+        """Handle the next button click - implement your next page logic here."""
+        # You can implement the logic for the next page here
+        # For example, showing a confirmation page or summary page
+        pass
 
     def show_main_window(self) -> None:
         """Display the main welcome window."""

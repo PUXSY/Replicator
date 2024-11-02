@@ -39,10 +39,16 @@ class SerchForLogo:
         self.app: Application = app
         self.app.load_applications_data()
         self.software_name: list[str] = self.app.fetch_available_programs()
+    
+    def setup_software_name(self, available_programs: list[str]) -> None:
+        for i in range(len(available_programs)):
+            available_programs[i].replace(" ", "_")
+            self.serchForLogo(available_programs[i])
+             
         
-    def SerchForLogo(self, software_name: list[str]) -> None:
+    def serchForLogo(self, software_name: list[str]) -> None:
         headers = {"User-Agent": "Mozilla/5.0"}
-        url: str = f"https://www.google.com/search?q={software_name}+logo&tbm=isch"
+        url: str = f"https://www.cleanpng.com/free/{software_name}.html"
         print(url)
         response = requests.get(url, headers=headers)
         response.raise_for_status()
@@ -51,7 +57,7 @@ class SerchForLogo:
         if img_tag and "src" in img_tag.attrs:
             return img_tag["src"]
         else:
-            print(f"No image found for {software_name}")
+            print(f"Now no suitable content is found, please change the search terms, or send production requirements to your favorite author. Ahead, browse the latest beautiful creations.")
             return None
 
 if __name__ == "__main__":
@@ -60,7 +66,7 @@ if __name__ == "__main__":
     app.load_applications_data()
     
     available_programs = app.fetch_available_programs()
-    for i in range(len(available_programs)):
-        SerchLogo.SerchForLogo(available_programs[i])
+    SerchLogo.setup_software_name(available_programs)
+    
     
 

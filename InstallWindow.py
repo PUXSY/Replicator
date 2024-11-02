@@ -4,15 +4,20 @@ from PyQt5.QtWidgets import (QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
                            QListWidget, QListWidgetItem, QPushButton, QLabel, 
                            QProgressBar, QLineEdit)
 from PyQt5.QtCore import Qt, QThread, pyqtSignal, QSize
-from PyQt5.QtGui import QIcon
+from PyQt5.QtGui import QIcon, QFont
 from ProgramManager import ProgramManager
 from InstallationThread import InstallationThread
+from Settings import Settings
 import os
 
 class InstallWindow(QMainWindow):
     """
     Main window for program installation interface.
     """
+    # Add navigation signals
+    back_clicked = pyqtSignal()
+    next_clicked = pyqtSignal()
+
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Replicator - Install Manager")
@@ -24,6 +29,10 @@ class InstallWindow(QMainWindow):
         # Create and set central widget
         self.central_widget = InstallWindowContent(self.program_manager)
         self.setCentralWidget(self.central_widget)
+        
+        # Connect navigation signals from content widget to window signals
+        self.central_widget.back_clicked.connect(self.back_clicked.emit)
+        self.central_widget.next_clicked.connect(self.next_clicked.emit)
 
 
 class InstallWindowContent(QWidget):
@@ -31,6 +40,8 @@ class InstallWindowContent(QWidget):
     Content widget for the installation window.
     """
     installation_requested = pyqtSignal()
+    back_clicked = pyqtSignal()
+    next_clicked = pyqtSignal()
 
     def __init__(self, program_manager: ProgramManager):
         super().__init__()
@@ -42,6 +53,7 @@ class InstallWindowContent(QWidget):
         self.selected_search = QLineEdit()
         self.progress_bar = QProgressBar()
         self.status_label = QLabel()
+        self.stt = Settings()
         self.setup_ui()
 
     def setup_ui(self) -> None:
@@ -50,18 +62,42 @@ class InstallWindowContent(QWidget):
         self._create_install_button()
         self._create_progress_bar()
         self._create_status_label()
+        self._create_navigation_buttons()  # Add navigation buttons
         self._populate_available_list()
 
         # Set icon sizes
         self.available_list.setIconSize(QSize(32, 32))
         self.selected_list.setIconSize(QSize(32, 32))
 
+    def _create_navigation_buttons(self) -> None:
+        """Create back and next navigation buttons."""
+        nav_layout = QHBoxLayout()
+        
+        # Back button
+        self.back_button = QPushButton("Back")
+        self.back_button.setFixedSize(100, 30)
+        self.back_button.setStyleSheet(self.stt.button_style())
+        self.back_button.clicked.connect(self.back_clicked.emit)
+        
+        # Next button
+        self.next_button = QPushButton("Next")
+        self.next_button.setFixedSize(100, 30)
+        self.next_button.setStyleSheet(self.stt.button_style())
+        self.next_button.clicked.connect(self.next_clicked.emit)
+        
+        # Add buttons to layout
+        nav_layout.addWidget(self.back_button)
+        nav_layout.addStretch()  # This will push the buttons to the edges
+        nav_layout.addWidget(self.next_button)
+        
+        self.layout.addLayout(nav_layout)
+    
     def _create_header(self) -> None:
         header_label = QLabel("Program Installation Manager")
         header_label.setStyleSheet("font-size: 18px; font-weight: bold;")
         header_label.setAlignment(Qt.AlignCenter)
         self.layout.addWidget(header_label)
-
+        
     def _create_list_layout(self) -> None:
         list_layout = QHBoxLayout()
         
@@ -103,20 +139,7 @@ class InstallWindowContent(QWidget):
 
     def _create_install_button(self) -> None:
         install_button = QPushButton("Install Selected Programs")
-        install_button.setStyleSheet("""
-            QPushButton {
-                background-color: #222b2e;
-                color: white;
-                border-radius: 5px;
-                padding: 10px;
-            }
-            QPushButton:hover {
-                background-color: #3d454d;
-            }
-            QPushButton:pressed {
-                background-color: #219a52;
-            }
-        """)
+        install_button.setStyleSheet(self.stt.button_style())
         install_button.clicked.connect(self.installation_requested.emit)
         self.layout.addWidget(install_button)
 
