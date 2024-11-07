@@ -24,7 +24,7 @@
         "description": "Adobe Acrobat Reader is a free PDF viewer with essential features for viewing, printing, and annotating PDF documents.",
         "link": "https://www.adobe.com/acrobat/pdf-reader.html",
         "winget": "Adobe.Acrobat.Reader.64-bit",
-        "logo": "./logs/Adobe_icon.png"
+        "logo": "./logs/Adobe Acrobat Reader.png"
     },
     "advancedip": {
         "category": "Pro Tools",
@@ -131,7 +131,7 @@
         "description": "AutoHotkey is a scripting language for Windows that allows users to create custom automation scripts and macros. It is often used for automating repetitive tasks and customizing keyboard shortcuts.",
         "link": "https://www.autohotkey.com/",
         "winget": "AutoHotkey.AutoHotkey",
-        "logo": "./logs/AutoHotkey_Logo.png"
+        "logo": "./logs/AutoHotkey.png"
     },
     "azuredatastudio": {
         "category": "Microsoft Tools",
@@ -165,7 +165,8 @@
         "content": "Bitwarden",
         "description": "Bitwarden is an open-source password management solution. It allows users to store and manage their passwords in a secure and encrypted vault, accessible across multiple devices.",
         "link": "https://bitwarden.com/",
-        "winget": "Bitwarden.Bitwarden"
+        "winget": "Bitwarden.Bitwarden",
+        "logo": "./logs/Bitwarden.png"
     },
     "bleachbit": {
         "category": "Utilities",
@@ -174,7 +175,7 @@
         "description": "Clean Your System and Free Disk Space",
         "link": "https://www.bleachbit.org/",
         "winget": "BleachBit.BleachBit",
-        "logo": "./logs/BleachBit_Logo.png"
+        "logo": "./logs/BleachBit.png"
     },
     "blender": {
         "category": "Multimedia Tools",
@@ -200,7 +201,8 @@
         "content": "Bulk Crap Uninstaller",
         "description": "Bulk Crap Uninstaller is a free and open-source uninstaller utility for Windows. It helps users remove unwanted programs and clean up their system by uninstalling multiple applications at once.",
         "link": "https://www.bcuninstaller.com/",
-        "winget": "Klocman.BulkCrapUninstaller"
+        "winget": "Klocman.BulkCrapUninstaller",
+        "logo": "./logs/Bulk Crap Uninstaller.png"
     },
     "bulkrenameutility": {
         "category": "Utilities",
@@ -208,7 +210,8 @@
         "content": "Bulk Rename Utility",
         "description": "Bulk Rename Utility allows you to easily rename files and folders recursively based upon find-replace, character place, fields, sequences, regular expressions, EXIF data, and more.",
         "link": "https://www.bulkrenameutility.co.uk",
-        "winget": "TGRMNSoftware.BulkRenameUtility"
+        "winget": "TGRMNSoftware.BulkRenameUtility",
+        "logo": "./logs/Bulk Rename Utility.png"
     },
     "AdvancedRenamer": {
         "category": "Utilities",
@@ -216,7 +219,8 @@
         "content": "Advanced Renamer",
         "description": "Advanced Renamer is a program for renaming multiple files and folders at once. By configuring renaming methods the names can be manipulated in various ways.",
         "link": "https://www.advancedrenamer.com/",
-        "winget": "HulubuluSoftware.AdvancedRenamer"
+        "winget": "HulubuluSoftware.AdvancedRenamer",
+        "logo": "./logs/Advanced Renamer.png"
     },
     "calibre": {
         "category": "Document",
@@ -224,7 +228,8 @@
         "content": "Calibre",
         "description": "Calibre is a powerful and easy-to-use e-book manager, viewer, and converter.",
         "link": "https://calibre-ebook.com/",
-        "winget": "calibre.calibre"
+        "winget": "calibre.calibre",
+        "logo": "./logs/Calibre.png"
     },
     "carnac": {
         "category": "Utilities",
@@ -240,7 +245,8 @@
         "content": "Cemu",
         "description": "Cemu is a highly experimental software to emulate Wii U applications on PC.",
         "link": "https://cemu.info/",
-        "winget": "Cemu.Cemu"
+        "winget": "Cemu.Cemu",
+        "logo": "./logs/Cemu.png"
     },
     "chatterino": {
         "category": "Communications",
@@ -248,7 +254,8 @@
         "content": "Chatterino",
         "description": "Chatterino is a chat client for Twitch chat that offers a clean and customizable interface for a better streaming experience.",
         "link": "https://www.chatterino.com/",
-        "winget": "ChatterinoTeam.Chatterino"
+        "winget": "ChatterinoTeam.Chatterino",
+        "logo": "./logs/Chatterino.png"
     },
     "chrome": {
         "category": "Browsers",
@@ -265,7 +272,8 @@
         "content": "Chromium",
         "description": "Chromium is the open-source project that serves as the foundation for various web browsers, including Chrome.",
         "link": "https://github.com/Hibbiki/chromium-win64",
-        "winget": "Hibbiki.Chromium"
+        "winget": "Hibbiki.Chromium",
+        "logo": "./logs/Chromium.png"
     },
     "arc": {
         "category": "Browsers",
@@ -273,7 +281,8 @@
         "content": "Arc",
         "description": "Arc is a Chromium based browser, known for it's clean and modern design.",
         "link": "https://arc.net/",
-        "winget": "TheBrowserCompany.Arc"
+        "winget": "TheBrowserCompany.Arc",
+        "logo": "./logs/arc_browser.png"
     },
     "clementine": {
         "category": "Multimedia Tools",
@@ -281,7 +290,8 @@
         "content": "Clementine",
         "description": "Clementine is a modern music player and library organizer, supporting various audio formats and online radio services.",
         "link": "https://www.clementine-player.org/",
-        "winget": "Clementine.Clementine"
+        "winget": "Clementine.Clementine",
+        "logo": "./logs/Clementine.png"
     },
     "clink": {
         "category": "Development",
@@ -297,7 +307,8 @@
         "content": "Clone Hero",
         "description": "Clone Hero is a free rhythm game, which can be played with any 5 or 6 button guitar controller.",
         "link": "https://clonehero.net/",
-        "winget": "CloneHeroTeam.CloneHero"
+        "winget": "CloneHeroTeam.CloneHero",
+        "logo": "./logs/Clone Hero.png"
     },
     "cmake": {
         "category": "Development",
@@ -305,7 +316,8 @@
         "content": "CMake",
         "description": "CMake is an open-source, cross-platform family of tools designed to build, test and package software.",
         "link": "https://cmake.org/",
-        "winget": "Kitware.CMake"
+        "winget": "Kitware.CMake",
+        "logo": "./logs/CMake.png"
     },
     "copyq": {
         "category": "Utilities",
@@ -321,7 +333,8 @@
         "content": "CPU-Z",
         "description": "CPU-Z is a system monitoring and diagnostic tool for Windows. It provides detailed information about the computer's hardware components, including the CPU, memory, and motherboard.",
         "link": "https://www.cpuid.com/softwares/cpu-z.html",
-        "winget": "CPUID.CPU-Z"
+        "winget": "CPUID.CPU-Z",
+        "logo": "./logs/CPU-Z.png" 
     },
     "crystaldiskinfo": {
         "category": "Utilities",
@@ -329,7 +342,8 @@
         "content": "Crystal Disk Info",
         "description": "Crystal Disk Info is a disk health monitoring tool that provides information about the status and performance of hard drives. It helps users anticipate potential issues and monitor drive health.",
         "link": "https://crystalmark.info/en/software/crystaldiskinfo/",
-        "winget": "CrystalDewWorld.CrystalDiskInfo"
+        "winget": "CrystalDewWorld.CrystalDiskInfo",
+        "logo": "./logs/Crystal Disk Info.png"
     },
     "capframex": {
         "category": "Utilities",
@@ -345,7 +359,8 @@
         "content": "Crystal Disk Mark",
         "description": "Crystal Disk Mark is a disk benchmarking tool that measures the read and write speeds of storage devices. It helps users assess the performance of their hard drives and SSDs.",
         "link": "https://crystalmark.info/en/software/crystaldiskmark/",
-        "winget": "CrystalDewWorld.CrystalDiskMark"
+        "winget": "CrystalDewWorld.CrystalDiskMark",
+        "logo": "./logs/Crystal Disk Mark.png"
     },
     "darktable": {
         "category": "Multimedia Tools",
@@ -353,7 +368,8 @@
         "content": "darktable",
         "description": "Open-source photo editing tool, offering an intuitive interface, advanced editing capabilities, and a non-destructive workflow for seamless image enhancement.",
         "link": "https://www.darktable.org/install/",
-        "winget": "darktable.darktable"
+        "winget": "darktable.darktable",
+        "logo": "./logs/darktable.png"
     },
     "DaxStudio": {
         "category": "Development",
@@ -361,7 +377,8 @@
         "content": "DaxStudio",
         "description": "DAX (Data Analysis eXpressions) Studio is the ultimate tool for executing and analyzing DAX queries against Microsoft Tabular models.",
         "link": "https://daxstudio.org/",
-        "winget": "DaxStudio.DaxStudio"
+        "winget": "DaxStudio.DaxStudio",
+        "logo":"./logs/DaxStudio.png"
     },
     "ddu": {
         "category": "Utilities",
@@ -369,7 +386,8 @@
         "content": "Display Driver Uninstaller",
         "description": "Display Driver Uninstaller (DDU) is a tool for completely uninstalling graphics drivers from NVIDIA, AMD, and Intel. It is useful for troubleshooting graphics driver-related issues.",
         "link": "https://www.wagnardsoft.com/display-driver-uninstaller-DDU-",
-        "winget": "ddu"
+        "winget": "ddu",
+        "logo": "./logs/Display Driver Uninstaller.png"
     },
     "deluge": {
         "category": "Utilities",
@@ -386,7 +404,8 @@
         "content": "DevToys",
         "description": "DevToys is a collection of development-related utilities and tools for Windows. It includes tools for file management, code formatting, and productivity enhancements for developers.",
         "link": "https://devtoys.app/",
-        "winget": "DevToys-app.DevToys"
+        "winget": "DevToys-app.DevToys",
+        "logo": "./logs/DevToys.png"
     },
     "digikam": {
         "category": "Multimedia Tools",
@@ -394,7 +413,8 @@
         "content": "digiKam",
         "description": "digiKam is an advanced open-source photo management software with features for organizing, editing, and sharing photos.",
         "link": "https://www.digikam.org/",
-        "winget": "KDE.digikam"
+        "winget": "KDE.digikam",
+        "logo":"./logs/digiKam.png"
     },
     "discord": {
         "category": "Communications",
@@ -419,7 +439,8 @@
         "content": "Docker Desktop",
         "description": "Docker Desktop is a powerful tool for containerized application development and deployment.",
         "link": "https://www.docker.com/products/docker-desktop",
-        "winget": "Docker.DockerDesktop"
+        "winget": "Docker.DockerDesktop",
+        "logo":"./logs/Docker Desktop.png"
     },
     "dotnet3": {
         "category": "Microsoft Tools",
@@ -459,7 +480,8 @@
         "content": ".NET Desktop Runtime 8",
         "description": ".NET Desktop Runtime 8 is a runtime environment required for running applications developed with .NET 8.",
         "link": "https://dotnet.microsoft.com/download/dotnet/8.0",
-        "winget": "Microsoft.DotNet.DesktopRuntime.8"
+        "winget": "Microsoft.DotNet.DesktopRuntime.8",
+        "logo": "./logs/.NET Desktop Runtime 8.png"
     },
     "dmt": {
         "winget": "GNE.DualMonitorTools",
@@ -467,7 +489,8 @@
         "category": "Utilities",
         "content": "Dual Monitor Tools",
         "link": "https://dualmonitortool.sourceforge.net/",
-        "description": "Dual Monitor Tools (DMT) is a FOSS app that allows you to customize the handling of multiple monitors. Useful for fullscreen games and apps that handle a second monitor poorly and can improve your workflow."
+        "description": "Dual Monitor Tools (DMT) is a FOSS app that allows you to customize the handling of multiple monitors. Useful for fullscreen games and apps that handle a second monitor poorly and can improve your workflow.",
+        "logo": "./logs/Dual Monitor Tools.png"
     },
     "duplicati": {
         "category": "Utilities",
@@ -475,7 +498,8 @@
         "content": "Duplicati",
         "description": "Duplicati is an open-source backup solution that supports encrypted, compressed, and incremental backups. It is designed to securely store data on cloud storage services.",
         "link": "https://www.duplicati.com/",
-        "winget": "Duplicati.Duplicati"
+        "winget": "Duplicati.Duplicati",
+        "logo": "./logs/Duplicati.png"
     },
     "eaapp": {
         "category": "Games",
@@ -483,7 +507,17 @@
         "content": "EA App",
         "description": "EA App is a platform for accessing and playing Electronic Arts games.",
         "link": "https://www.ea.com/ea-app",
-        "winget": "ElectronicArts.EADesktop"
+        "winget": "ElectronicArts.EADesktop",
+        "logo":"./logs/EA App.png"
+    },
+    "fastfetch": {
+        "category": "Utilities",
+        "choco": "na",
+        "content": "Fastfetch",
+        "description": "Fastfetch is a neofetch-like tool for fetching system information and displaying them in a pretty way",
+        "link": "https://github.com/fastfetch-cli/fastfetch/",
+        "winget": "Fastfetch-cli.Fastfetch",
+        "logo": "./logs/Fastfetch.png"
     },
     "eartrumpet": {
         "category": "Multimedia Tools",
@@ -499,7 +533,8 @@
         "content": "Edge",
         "description": "Microsoft Edge is a modern web browser built on Chromium, offering performance, security, and integration with Microsoft services.",
         "link": "https://www.microsoft.com/edge",
-        "winget": "Microsoft.Edge"
+        "winget": "Microsoft.Edge",
+        "logo": "./logs/Edge.pmg"
     },
     "efibooteditor": {
         "category": "Pro Tools",
@@ -523,7 +558,8 @@
         "content": "Epic Games Launcher",
         "description": "Epic Games Launcher is the client for accessing and playing games from the Epic Games Store.",
         "link": "https://www.epicgames.com/store/en-US/",
-        "winget": "EpicGames.EpicGamesLauncher"
+        "winget": "EpicGames.EpicGamesLauncher",
+        "logo": "./logs/Epic Games Launcher.png"
     },
     "esearch": {
         "category": "Utilities",
@@ -556,14 +592,6 @@
         "description": "Falkon is a lightweight and fast web browser with a focus on user privacy and efficiency.",
         "link": "https://www.falkon.org/",
         "winget": "KDE.Falkon"
-    },
-    "fastfetch": {
-        "category": "Utilities",
-        "choco": "na",
-        "content": "Fastfetch",
-        "description": "Fastfetch is a neofetch-like tool for fetching system information and displaying them in a pretty way",
-        "link": "https://github.com/fastfetch-cli/fastfetch/",
-        "winget": "Fastfetch-cli.Fastfetch"
     },
     "ferdium": {
         "category": "Communications",
@@ -613,6 +641,7 @@
         "link": "https://www.mozilla.org/en-US/firefox/new/",
         "winget": "Mozilla.Firefox",
         "logo": "./logs/firefox_icon.png"
+
     },
     "firefoxesr": {
         "category": "Browsers",
@@ -652,7 +681,8 @@
         "content": "Flow launcher",
         "description": "Keystroke launcher for Windows to search, manage and launch files, folders bookmarks, websites and more.",
         "link": "https://www.flowlauncher.com/",
-        "winget": "Flow-Launcher.Flow-Launcher"
+        "winget": "Flow-Launcher.Flow-Launcher",
+        "logo": "./logs/Flow launcher.png"
     },
     "flux": {
         "category": "Utilities",
@@ -700,7 +730,8 @@
         "content": "FxSound",
         "description": "FxSound is a cutting-edge audio enhancement software that elevates your listening experience across all media.",
         "link": "https://www.fxsound.com/",
-        "winget": "FxSoundLLC.FxSound"
+        "winget": "FxSoundLLC.FxSound",
+        "logo": "./logs/FxSound.png"
     },
     "fzf": {
         "category": "Utilities",
@@ -716,7 +747,9 @@
         "content": "GeForce NOW",
         "description": "GeForce NOW is a cloud gaming service that allows you to play high-quality PC games on your device.",
         "link": "https://www.nvidia.com/en-us/geforce-now/",
-        "winget": "Nvidia.GeForceNow"
+        "winget": "Nvidia.GeForceNow",
+        "logo": "./logs/GeForce NOW.png"
+
     },
     "gimp": {
         "category": "Multimedia Tools",
@@ -724,7 +757,8 @@
         "content": "GIMP (Image Editor)",
         "description": "GIMP is a versatile open-source raster graphics editor used for tasks such as photo retouching, image editing, and image composition.",
         "link": "https://www.gimp.org/",
-        "winget": "GIMP.GIMP"
+        "winget": "GIMP.GIMP",
+        "logo": "./logs/GIMP.png"
     },
     "git": {
         "category": "Development",
@@ -1282,7 +1316,8 @@
         "content": "Borderless Gaming",
         "description": "Play your favorite games in a borderless window; no more time consuming alt-tabs.",
         "link": "https://github.com/Codeusa/Borderless-Gaming",
-        "winget": "Codeusa.BorderlessGaming"
+        "winget": "Codeusa.BorderlessGaming",
+        "logo": "./logs/Borderless Gaming.png"
     },
     "EqualizerAPO": {
         "category": "Multimedia Tools",
@@ -1539,7 +1574,8 @@
         "content": "Apache OpenOffice",
         "description": "Apache OpenOffice is an open-source office software suite for word processing, spreadsheets, presentations, and more.",
         "link": "https://www.openoffice.org/",
-        "winget": "Apache.OpenOffice"
+        "winget": "Apache.OpenOffice",
+        "logo": "./logs/Apache OpenOffice.png"
     },
     "openrgb": {
         "category": "Utilities",
@@ -2226,7 +2262,8 @@
         "content": "Code With Mu (Mu Editor)",
         "description": "Mu is a Python code editor for beginner programmers",
         "link": "https://codewith.mu/",
-        "winget": "Mu.Mu"
+        "winget": "Mu.Mu",
+        "logo": "./logs/Code With Mu (Mu Editor).png"
     },
     "thorium": {
         "category": "Browsers",
@@ -2250,7 +2287,8 @@
         "content": "Betterbird",
         "description": "Betterbird is a fork of Mozilla Thunderbird with additional features and bugfixes.",
         "link": "https://www.betterbird.eu/",
-        "winget": "Betterbird.Betterbird"
+        "winget": "Betterbird.Betterbird",
+        "logo": "./logs/Betterbird.png"
     },
     "tidal": {
         "category": "Multimedia Tools",
@@ -2534,7 +2572,7 @@
         "description": "WireGuard is a fast and modern VPN (Virtual Private Network) protocol. It aims to be simpler and more efficient than other VPN protocols, providing secure and reliable connections.",
         "link": "https://www.wireguard.com/",
         "winget": "WireGuard.WireGuard",
-        "logo": "./logs/WireGuard_icon.png"
+        "logo": "./logs/WireGuard.png"
     },
     "wireshark": {
         "category": "Pro Tools",
@@ -2801,7 +2839,8 @@
         "content": "Ambie White Noise",
         "description": "Ambie is the ultimate app to help you focus, study, or relax. We use white noise and nature sounds combined with an innovative focus timer to keep you concentrated on doing your best work.",
         "link": "https://ambieapp.com/",
-        "winget": "9P07XNM5CHP0"
+        "winget": "9P07XNM5CHP0",
+        "logo": "./logs/Ambie White Noise.png"
     },
     "magicwormhole": {
         "category": "Utilities",
