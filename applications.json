@@ -739,7 +739,7 @@
         "content": "Fzf",
         "description": "A command-line fuzzy finder",
         "link": "https://github.com/junegunn/fzf/",
-        "winget": "junegunn.fzf"
+        "logo":"./logs/Fzf.png"
     },
     "geforcenow": {
         "category": "Games",
