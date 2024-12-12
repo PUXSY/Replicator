@@ -12,6 +12,30 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("Replicator - Welcome")
         self.setGeometry(560, 240, 800, 600)    
         self.stt = Settings()
+
+        # Set background color
+        self.setStyleSheet("""
+            QMainWindow { 
+                background-color: #0b0907; 
+                color: #ea560a; 
+            }
+            QLabel { 
+                color: #ea560a; 
+            }
+            QPushButton {
+                background-color: #ea560a;
+                color: #0b0907;
+                border: none;
+                padding: 8px;
+                border-radius: 4px;
+                font-weight: bold;
+            }
+            QPushButton:hover {
+                background-color: #ff6b1c;
+            }
+        """)
+    
+    # Rest of the existing code remains the same
         
         # Create central widget and layout
         central_widget = QWidget()

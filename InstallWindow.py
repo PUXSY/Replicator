@@ -3,8 +3,8 @@ from typing import List
 from PyQt5.QtWidgets import (QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
                            QListWidget, QListWidgetItem, QPushButton, QLabel, 
                            QProgressBar, QLineEdit)
-from PyQt5.QtCore import Qt, QThread, pyqtSignal, QSize
-from PyQt5.QtGui import QIcon, QFont
+from PyQt5.QtCore import Qt, pyqtSignal, QSize
+from PyQt5.QtGui import QIcon
 from ProgramManager import ProgramManager
 from InstallationThread import InstallationThread
 from Settings import Settings
@@ -23,9 +23,49 @@ class InstallWindow(QMainWindow):
         self.setWindowTitle("Replicator - Install Manager")
         self.setGeometry(560, 240, 800, 600)
 
+        # Set background color
+        self.setStyleSheet("""
+            QMainWindow { 
+                background-color: #0b0907; 
+                color: #ea560a; 
+            }
+            QLabel { 
+                color: #ea560a; 
+            }
+            QListWidget {
+                background-color: #39180b;
+                color: #ea560a;
+                border: 1px solid #ea560a;
+            }
+            QPushButton {
+                background-color: #ea560a;
+                color: #0b0907;
+                border: none;
+                padding: 8px;
+                border-radius: 4px;
+                font-weight: bold;
+            }
+            QPushButton:hover {
+                background-color: #ff6b1c;
+            }
+            QLineEdit {
+                background-color: #39180b;
+                color: #ea560a;
+                border: 1px solid #ea560a;
+            }
+            QProgressBar {
+                border: 1px solid #ea560a;
+                text-align: center;
+            }
+            QProgressBar::chunk {
+                background-color: #ea560a;
+            }
+        """)
+
+
         self.program_manager = ProgramManager()
         self.program_manager.fetch_available_programs()
-        
+            
         # Create and set central widget
         self.central_widget = InstallWindowContent(self.program_manager)
         self.setCentralWidget(self.central_widget)
@@ -55,6 +95,12 @@ class InstallWindowContent(QWidget):
         self.status_label = QLabel()
         self.stt = Settings()
         self.setup_ui()
+        
+    def _create_header(self) -> None:
+        header_label = QLabel("Program Installation Manager")
+        header_label.setStyleSheet("font-size: 18px; font-weight: bold; color: #CC784E;")
+        header_label.setAlignment(Qt.AlignCenter)
+        self.layout.addWidget(header_label)
 
     def setup_ui(self) -> None:
         self._create_header()
@@ -62,10 +108,9 @@ class InstallWindowContent(QWidget):
         self._create_install_button()
         self._create_progress_bar()
         self._create_status_label()
-        self._create_navigation_buttons()  # Add navigation buttons
+        self._create_navigation_buttons()
         self._populate_available_list()
 
-        # Set icon sizes
         self.available_list.setIconSize(QSize(32, 32))
         self.selected_list.setIconSize(QSize(32, 32))
 

@@ -3,7 +3,9 @@ from MainWindow import MainWindow
 from InstallWindow import InstallWindow
 from ProgramManager import ProgramManager
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
+from WindowsSettings import WindowsSettings
 from typing import Optional
+from TweaksWindow import TweaksWindow
 
 class WindowManager:
     def __init__(self):
@@ -11,6 +13,7 @@ class WindowManager:
         self.program_manager = ProgramManager()
         self.main_window: Optional[MainWindow] = None
         self.install_window: Optional[InstallWindow] = None
+        self.tweaks_window: Optional[TweaksWindow] = None  # Add this line
         self._setup_windows()
 
     def _setup_windows(self) -> None:
@@ -26,6 +29,8 @@ class WindowManager:
         self.install_window.back_clicked.connect(self.show_main_window)
         self.install_window.next_clicked.connect(self.handle_next_page)
         
+        self.tweaks_window = TweaksWindow()
+        self.tweaks_window.back_clicked.connect(self.show_install_window)
         # Connect window-level signals
         if hasattr(self.install_window, 'central_widget'):
             self.install_window.central_widget.installation_requested.connect(
@@ -34,9 +39,10 @@ class WindowManager:
 
     def handle_next_page(self) -> None:
         """Handle the next button click - implement your next page logic here."""
-        # You can implement the logic for the next page here
-        # For example, showing a confirmation page or summary page
-        pass
+        if self.install_window and not self.install_window.isHidden():
+            self.install_window.hide()
+            if self.tweaks_window:
+                self.tweaks_window.show()
 
     def show_main_window(self) -> None:
         """Display the main welcome window."""
@@ -49,6 +55,8 @@ class WindowManager:
         """Switch to the install window."""
         if self.main_window and not self.main_window.isHidden():
             self.main_window.hide()
+        if self.tweaks_window and not self.tweaks_window.isHidden():
+            self.tweaks_window.hide()  
         if self.install_window:
             self.install_window.show()
 
@@ -90,3 +98,6 @@ class WindowManager:
         """Display an information message to the user."""
         active_window = self.install_window if self.install_window and not self.install_window.isHidden() else self.main_window
         QMessageBox.information(active_window, title, message)
+        
+    def navigate_to_third_page(self):
+        self.stack.setCurrentWidget(self.third_page)
