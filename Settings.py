@@ -5,16 +5,15 @@ class Settings:
         if Dark_mode == False:
             return """
             QPushButton {
-                background-color: #17242e;
-                color: white;
-                border-radius: 5px;
-                padding: 10px;
+                background-color: #ea560a;
+                color: #0b0907;
+                border: none;
+                padding: 8px;
+                border-radius: 4px;
+                font-weight: bold;
             }
             QPushButton:hover {
-                background-color: #263d4f;
-            }
-            QPushButton:pressed {
-                background-color: #12202a;
+                background-color: #ff6b1c;
             }
         """
         else:
