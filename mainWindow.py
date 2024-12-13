@@ -1,7 +1,6 @@
 from PyQt5.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QPushButton, QLabel
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QFont
-from Settings import *
 
 class MainWindow(QMainWindow):
     """
@@ -11,7 +10,6 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.setWindowTitle("Replicator - Welcome")
         self.setGeometry(560, 240, 800, 600)    
-        self.stt = Settings()
 
         # Set background color
         self.setStyleSheet("""
@@ -67,7 +65,18 @@ class MainWindow(QMainWindow):
         self.download_button = QPushButton("Start Download Manager")
         self.download_button.setFixedSize(200, 50)
         self.download_button.setFont(QFont("Arial", 12))
-        self.download_button.setStyleSheet(self.stt.button_style())
+        self.download_button.setStyleSheet("""
+QPushButton {
+    background-color: #ea560a;
+    color: #0b0907;
+    border: none;
+    padding: 8px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+QPushButton:hover {
+    background-color: #ff6b1c;
+}""")
         layout.addWidget(self.download_button, alignment=Qt.AlignCenter)
         
         # Add bottom spacer

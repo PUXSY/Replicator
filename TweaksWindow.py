@@ -2,7 +2,6 @@ from PyQt5.QtWidgets import (QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
                              QLabel, QCheckBox, QPushButton, QScrollArea)
 from PyQt5.QtCore import Qt, pyqtSignal
 from PyQt5.QtGui import QFont
-from Settings import Settings
 
 class TweaksWindow(QMainWindow):
     """
@@ -52,8 +51,6 @@ QPushButton:hover {
     background-color: #ff6b1c;
 }
         """)
-
-        self.stt = Settings()
         
         # Create and set central widget
         self.central_widget = TweaksWindowContent()
