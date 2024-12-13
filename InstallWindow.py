@@ -9,6 +9,7 @@ from ProgramManager import ProgramManager
 from InstallationThread import InstallationThread
 import os
 from PyQt5.QtGui import QFont
+from Style import *
 
 
 class InstallWindow(QMainWindow):
@@ -41,10 +42,10 @@ class InstallWindow(QMainWindow):
             }
             QPushButton {
                 background-color: #ea560a;
-                color: #000101;
+                color: #0b0907;
                 border: none;
                 padding: 8px;
-                border-radius: 4px;
+                border-radius: 8px;
                 font-weight: bold;
             }
             QPushButton:hover {
@@ -75,6 +76,8 @@ class InstallWindow(QMainWindow):
         # Connect navigation signals from content widget to window signals
         self.central_widget.back_clicked.connect(self.back_clicked.emit)
         self.central_widget.next_clicked.connect(self.next_clicked.emit)
+        
+
 
 
 class InstallWindowContent(QWidget):
@@ -122,35 +125,13 @@ class InstallWindowContent(QWidget):
         # Back button
         self.back_button = QPushButton("Back")
         self.back_button.setFixedSize(100, 30)
-        self.back_button.setStyleSheet("""
-QPushButton {
-    background-color: #ea560a;
-    color: #0b0907;
-    border: none;
-    padding: 8px;
-    border-radius: 4px;
-    font-weight: bold;
-}
-QPushButton:hover {
-    background-color: #ff6b1c;
-}""")
+        self.back_button.setStyleSheet(butten_stylel())
         self.back_button.clicked.connect(self.back_clicked.emit)
         
         # Next button
         self.next_button = QPushButton("Next")
         self.next_button.setFixedSize(100, 30)
-        self.next_button.setStyleSheet("""
-QPushButton {
-    background-color: #ea560a;
-    color: #0b0907;
-    border: none;
-    padding: 8px;
-    border-radius: 4px;
-    font-weight: bold;
-}
-QPushButton:hover {
-    background-color: #ff6b1c;
-}""")
+        self.next_button.setStyleSheet(butten_stylel())
         self.next_button.clicked.connect(self.next_clicked.emit)
         
         # Add buttons to layout
@@ -208,18 +189,7 @@ QPushButton:hover {
 
     def _create_install_button(self) -> None:
         install_button = QPushButton("Install Selected Programs")
-        install_button.setStyleSheet("""
-QPushButton {
-    background-color: #ea560a;
-    color: #0b0907;
-    border: none;
-    padding: 8px;
-    border-radius: 4px;
-    font-weight: bold;
-}
-QPushButton:hover {
-    background-color: #ff6b1c;
-}""")
+
         install_button.clicked.connect(self.installation_requested.emit)
         self.layout.addWidget(install_button)
 

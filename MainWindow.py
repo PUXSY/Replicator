@@ -25,7 +25,7 @@ class MainWindow(QMainWindow):
                 color: #CC784E;
                 border: none;
                 padding: 8px;
-                border-radius: 4px;
+                border-radius: 8px;
                 font-weight: bold;
                 font-size: 14px;
             }

@@ -43,7 +43,7 @@ QPushButton {
     color: #0b0907;
     border: none;
     padding: 8px;
-    border-radius: 4px;
+    border-radius: 8px;
     font-weight: bold;
 }
 
