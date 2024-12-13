@@ -4,11 +4,13 @@ from PyQt5.QtWidgets import (QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
                            QListWidget, QListWidgetItem, QPushButton, QLabel, 
                            QProgressBar, QLineEdit)
 from PyQt5.QtCore import Qt, pyqtSignal, QSize
-from PyQt5.QtGui import QIcon
+from PyQt5.QtGui import QIcon, QFontDatabase
 from ProgramManager import ProgramManager
 from InstallationThread import InstallationThread
 from Settings import Settings
 import os
+from PyQt5.QtGui import QFont
+
 
 class InstallWindow(QMainWindow):
     """
@@ -26,20 +28,21 @@ class InstallWindow(QMainWindow):
         # Set background color
         self.setStyleSheet("""
             QMainWindow { 
-                background-color: #0b0907; 
-                color: #ea560a; 
+                background-color: #222831; 
+                color: #CC784E; 
+                font-family: './Retroica.ttf';
             }
             QLabel { 
-                color: #ea560a; 
+                color: #CC784E; 
             }
             QListWidget {
-                background-color: #39180b;
-                color: #ea560a;
+                background-color: #393E46;
+                color: #CC784E;
                 border: 1px solid #ea560a;
             }
             QPushButton {
                 background-color: #ea560a;
-                color: #0b0907;
+                color: #000101;
                 border: none;
                 padding: 8px;
                 border-radius: 4px;
@@ -50,7 +53,7 @@ class InstallWindow(QMainWindow):
             }
             QLineEdit {
                 background-color: #39180b;
-                color: #ea560a;
+                color: #CC784E;
                 border: 1px solid #ea560a;
             }
             QProgressBar {
@@ -132,14 +135,15 @@ class InstallWindowContent(QWidget):
         
         # Add buttons to layout
         nav_layout.addWidget(self.back_button)
-        nav_layout.addStretch()  # This will push the buttons to the edges
+        nav_layout.addStretch()  
         nav_layout.addWidget(self.next_button)
         
         self.layout.addLayout(nav_layout)
     
     def _create_header(self) -> None:
         header_label = QLabel("Program Installation Manager")
-        header_label.setStyleSheet("font-size: 18px; font-weight: bold;")
+        QFontDatabase.addApplicationFont('./Retroica')
+        header_label.setFont(QFont("Retroica", 18))
         header_label.setAlignment(Qt.AlignCenter)
         self.layout.addWidget(header_label)
         

@@ -16,19 +16,20 @@ class MainWindow(QMainWindow):
         # Set background color
         self.setStyleSheet("""
             QMainWindow { 
-                background-color: #0b0907; 
-                color: #ea560a; 
+                background-color: #222831; 
+                color: #CC784E; 
             }
             QLabel { 
-                color: #ea560a; 
+                color: #CC784E; 
             }
             QPushButton {
                 background-color: #ea560a;
-                color: #0b0907;
+                color: #CC784E;
                 border: none;
                 padding: 8px;
                 border-radius: 4px;
                 font-weight: bold;
+                font-size: 14px;
             }
             QPushButton:hover {
                 background-color: #ff6b1c;
