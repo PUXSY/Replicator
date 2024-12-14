@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import (QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, 
                              QLabel, QCheckBox, QPushButton, QScrollArea)
 from PyQt5.QtCore import Qt, pyqtSignal
-from PyQt5.QtGui import QFont
+from PyQt5.QtGui import QFont, QIcon
 
 class TweaksWindow(QMainWindow):
     """
@@ -15,6 +15,7 @@ class TweaksWindow(QMainWindow):
         super().__init__()
         self.setWindowTitle("Replicator - System Tweaks")
         self.setGeometry(560, 240, 800, 600)
+        self.setWindowIcon(QIcon("./Replicator Logo.png"))
 
         # Set background color
         self.setStyleSheet("""

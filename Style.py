@@ -1,4 +1,4 @@
-def butten_stylel() -> str:
+def butten_style() -> str:
     return """
 QPushButton {
     background-color: #ea560a;
@@ -10,4 +10,5 @@ QPushButton {
 }
 QPushButton:hover {
     background-color: #ff6b1c;
-}"""
+}
+"""

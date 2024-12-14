@@ -11,7 +11,6 @@ import os
 from PyQt5.QtGui import QFont
 from Style import *
 
-
 class InstallWindow(QMainWindow):
     """
     Main window for program installation interface.
@@ -24,13 +23,14 @@ class InstallWindow(QMainWindow):
         super().__init__()
         self.setWindowTitle("Replicator - Install Manager")
         self.setGeometry(560, 240, 800, 600)
+        self.setWindowIcon(QIcon("./Replicator Logo.png"))
 
         # Set background color
         self.setStyleSheet("""
             QMainWindow { 
                 background-color: #222831; 
                 color: #CC784E; 
-                font-family: './Retroica.ttf';
+                font-family: 'Arial', sans-serif;
             }
             QLabel { 
                 color: #CC784E; 
@@ -76,9 +76,6 @@ class InstallWindow(QMainWindow):
         # Connect navigation signals from content widget to window signals
         self.central_widget.back_clicked.connect(self.back_clicked.emit)
         self.central_widget.next_clicked.connect(self.next_clicked.emit)
-        
-
-
 
 class InstallWindowContent(QWidget):
     """
@@ -117,21 +114,22 @@ class InstallWindowContent(QWidget):
 
         self.available_list.setIconSize(QSize(32, 32))
         self.selected_list.setIconSize(QSize(32, 32))
-
+        
+        
     def _create_navigation_buttons(self) -> None:
         """Create back and next navigation buttons."""
         nav_layout = QHBoxLayout()
         
         # Back button
         self.back_button = QPushButton("Back")
-        self.back_button.setFixedSize(100, 30)
-        self.back_button.setStyleSheet(butten_stylel())
+        self.back_button.setFixedSize(400, 30)
+        self.back_button.setStyleSheet(butten_style())
         self.back_button.clicked.connect(self.back_clicked.emit)
         
         # Next button
         self.next_button = QPushButton("Next")
-        self.next_button.setFixedSize(100, 30)
-        self.next_button.setStyleSheet(butten_stylel())
+        self.next_button.setFixedSize(400, 30)
+        self.next_button.setStyleSheet(butten_style())
         self.next_button.clicked.connect(self.next_clicked.emit)
         
         # Add buttons to layout

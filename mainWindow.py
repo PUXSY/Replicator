@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QPushButton, QLabel
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QFont
+from PyQt5.QtGui import QIcon
 
 class MainWindow(QMainWindow):
     """
@@ -10,6 +11,7 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.setWindowTitle("Replicator - Welcome")
         self.setGeometry(560, 240, 800, 600)    
+        self.setWindowIcon(QIcon("./Replicator Logo.png"))
 
         # Set background color
         self.setStyleSheet("""
