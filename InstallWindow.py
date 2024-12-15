@@ -97,12 +97,6 @@ class InstallWindowContent(QWidget):
         self.status_label = QLabel()
         self.setup_ui()
         
-    def _create_header(self) -> None:
-        header_label = QLabel("Program Installation Manager")
-        header_label.setStyleSheet("font-size: 18px; font-weight: bold; color: #CC784E;")
-        header_label.setAlignment(Qt.AlignCenter)
-        self.layout.addWidget(header_label)
-
     def setup_ui(self) -> None:
         self._create_header()
         self._create_list_layout()
@@ -115,6 +109,11 @@ class InstallWindowContent(QWidget):
         self.available_list.setIconSize(QSize(32, 32))
         self.selected_list.setIconSize(QSize(32, 32))
         
+    def _create_header(self) -> None:
+        header_label = QLabel("Program Installation Manager")
+        header_label.setStyleSheet("font-size: 18px; font-weight: bold; color: #CC784E;")
+        header_label.setAlignment(Qt.AlignCenter)
+        self.layout.addWidget(header_label)
         
     def _create_navigation_buttons(self) -> None:
         """Create back and next navigation buttons."""
@@ -185,10 +184,19 @@ class InstallWindowContent(QWidget):
         
         self.layout.addLayout(list_layout)
 
+    def _filter_available_list(self, text: str) -> None:
+        for i in range(self.available_list.count()):
+            item = self.available_list.item(i)
+            item.setHidden(text.lower() not in item.text().lower())
+
+    def _filter_selected_list(self, text: str) -> None:
+        for i in range(self.selected_list.count()):
+            item = self.selected_list.item(i)
+            item.setHidden(text.lower() not in item.text().lower())
+    
     def _create_install_button(self) -> None:
         install_button = QPushButton("Install Selected Programs")
-
-        install_button.clicked.connect(self.installation_requested.emit)
+        install_button.clicked.connect(self._install_programs)
         self.layout.addWidget(install_button)
 
     def _create_progress_bar(self) -> None:
@@ -238,21 +246,41 @@ class InstallWindowContent(QWidget):
             item.setHidden(text.lower() not in item.text().lower())
 
     def _install_programs(self) -> None:
+        # Check if there are any programs selected
+        if not self.program_manager.selected_programs:
+            self.status_label.setText("No programs selected for installation.")
+            return
+    
+        # Reset and show progress bar
         self.progress_bar.setVisible(True)
+        self.progress_bar.setRange(0, 100)  # Ensure full range is set
         self.progress_bar.setValue(0)
-        self.status_label.setText("Installation in progress...")
-        
+        self.status_label.setText("Preparing installation...")
+    
+        # Disable install button during installation
+        sender = self.sender()
+        if sender:
+            sender.setEnabled(False)
+    
+        # Create and start installation thread
         self.install_thread = InstallationThread(self.program_manager)
         self.install_thread.progress_update.connect(self._update_progress)
-        self.install_thread.installation_complete.connect(self._installation_complete)
+        self.install_thread.installation_complete.connect(lambda results: self._installation_complete(results, sender))
         self.install_thread.start()
-
-    def _update_progress(self, value: int, status: str) -> None:
-        self.progress_bar.setValue(value)
-        self.status_label.setText(status)
-
-    def _installation_complete(self, results: List[str]) -> None:
+    
+    def _installation_complete(self, results: List[str], install_button=None) -> None:
         self.status_label.setText("Installation complete!")
         self.progress_bar.setVisible(False)
         self.selected_list.clear()
         self.program_manager.selected_programs.clear()
+        
+        # Re-enable install button if it was passed
+        if install_button:
+            install_button.setEnabled(True)
+    
+        # Optionally, show a dialog or log with detailed results
+        print("\n".join(results))
+        
+    def _update_progress(self, value: int, status: str) -> None:
+        self.progress_bar.setValue(value)
+        self.status_label.setText(status)

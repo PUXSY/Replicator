@@ -106,3 +106,35 @@ class ProgramManager:
             if program_data.get('content') == program_name:
                 return program_data.get('logo', "")
         return ""
+    
+    def install_single_program(self, program):
+        """
+        Install a single program using winget.
+        
+        Args:
+            program (str): Name of the program to install
+        
+        Returns:
+            str: Installation result message
+        """
+        try:
+            # Example winget installation command 
+            # You'll need to replace this with your actual installation method
+            import subprocess
+            
+            result = subprocess.run(
+                ['winget', 'install', '--id', program, '-e', '--silent'], 
+                capture_output=True, 
+                text=True, 
+                timeout=600  # 10-minute timeout
+            )
+            
+            if result.returncode == 0:
+                return f"{program} installed successfully"
+            else:
+                return f"Failed to install {program}: {result.stderr}"
+        
+        except subprocess.TimeoutExpired:
+            return f"Installation of {program} timed out"
+        except Exception as e:
+            return f"Error installing {program}: {str(e)}"
