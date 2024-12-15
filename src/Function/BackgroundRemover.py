@@ -1,9 +1,7 @@
 from pathlib import Path
 from rembg import remove
 from PIL import Image, UnidentifiedImageError
-import io
 import logging
-import os
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
